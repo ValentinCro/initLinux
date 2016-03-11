@@ -1,4 +1,4 @@
-# initLinux
+# initLinux v1.0
 init a linux os with all thing needed by a web developer
 
 The script install :
