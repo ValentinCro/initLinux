@@ -5,6 +5,7 @@ The script install :
 - php5
 - npm
 - git
+- dpkg
 - terminator
 - Java8
 - software-center (to install .deb package)

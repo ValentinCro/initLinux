@@ -21,7 +21,7 @@ sudo apt-get --yes --force-yes install terminator
 sudo apt-get --yes --force-yes install software-center
 sudo apt-get --yes --force-yes install firefox
 sudo apt-get --yes --force-yes install git
-
+sudo apt-get --yes --force-yes install dpkg
 
 #Install JAVA
 sudo echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | sudo tee /etc/apt/sources.list.d/java-8-debian.list
