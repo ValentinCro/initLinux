@@ -25,14 +25,16 @@ sudo mv composer.phar /usr/local/bin/composer
 cd ~/
 wget -c "https://download.jetbrains.com/webide/PhpStorm-10.0.3.tar.gz"
 tar -xvf PhpStorm-10.0.3.tar.gz
-mv PhpStorm-10.0.3.tar.gz ~/phpStorm
+mv PhpStorm-10.0.3 ~/phpStorm
+rm PhpStorm-10.0.3.tar.gz
 
 
 #install intelliJ
 cd ~/
 wget -c "https://download.jetbrains.com/idea/ideaIU-15.0.4.tar.gz"
 tar -xvf ideaIU-15.0.4.tar.gz
-mv ideaIU-15.0.4.tar.gz ~/ideaIU
+mv ideaIU-15.0.4 ~/ideaIU
+rm ideaIU-15.0.4.tar.gz
 
 #install gitKraken
 cd ~/
@@ -46,4 +48,5 @@ wget -c "https://atom.io/download/deb"
 sudo dpkg -i atom-amd64.deb
 rm atom-amd64.deb
 
+#install gulp
 npm install -g gulp
