@@ -22,6 +22,8 @@ Those software are optional :
 - gulp (global)
 - atom
 - terminator
+
+Those one are separate because of their big weight :
 - latex (full)
 - texstudio
 

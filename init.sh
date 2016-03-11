@@ -72,8 +72,6 @@ if [ $choice == "n" ]
   then
 	echo "Well, no problem... *cry*"
 else
-	sudo apt-get --yes --force-yes install texlive-full
-	sudo apt-get --yes --force-yes install texstudio
 	sudo apt-get --yes --force-yes install maven
 	sudo apt-get --yes --force-yes install terminator
 
@@ -88,6 +86,21 @@ else
 	wget -c "https://atom.io/download/deb"
 	sudo dpkg -i atom-amd64.deb
 	rm atom-amd64.deb
+fi
+
+read -p "Do you wish to install latex and texstudio (y/n) (invalid input equals yes) ? " choice
+
+if [ -z $choice ]	
+then
+	choice="y"
+fi	
+
+if [ $choice == "n" ]
+  then
+	echo "Well, no problem... *cry*"
+else
+	sudo apt-get --yes --force-yes install texlive-full
+	sudo apt-get --yes --force-yes install texstudio
 fi
 
 #install gulp
