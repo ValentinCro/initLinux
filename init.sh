@@ -16,8 +16,6 @@ fi
 
 sudo apt-get --yes --force-yes install php5
 sudo apt-get --yes --force-yes install npm
-sudo apt-get --yes --force-yes install maven
-sudo apt-get --yes --force-yes install terminator
 sudo apt-get --yes --force-yes install software-center
 sudo apt-get --yes --force-yes install firefox
 sudo apt-get --yes --force-yes install git
@@ -53,17 +51,34 @@ tar -xvf ideaIU-15.0.4.tar.gz
 rm ideaIU-*.tar.gz
 mv ideaIU-* ~/ideaIU
 
-#install gitKraken
-cd ~/
-wget -c "https://release.gitkraken.com/linux/gitkraken-amd64.deb"
-sudo dpkg -i gitkraken-amd64.deb
-rm gitkraken-amd64.deb
+read -p "Do you wish to install optional software (y/n) (invalid input equals yes) ? " choice
 
-#install atom
-cd ~/
-wget -c "https://atom.io/download/deb"
-sudo dpkg -i atom-amd64.deb
-rm atom-amd64.deb
+if [ -z $choice ]	
+then
+	choice="y"
+fi	
+
+if [ $choice == "n" ]
+  then
+	echo "Well, no problem... *cry*"
+else
+	sudo apt-get --yes --force-yes install texlive-full
+	sudo apt-get --yes --force-yes install texstudio
+	sudo apt-get --yes --force-yes install maven
+	sudo apt-get --yes --force-yes install terminator
+
+	#install gitKraken
+	cd ~/
+	wget -c "https://release.gitkraken.com/linux/gitkraken-amd64.deb"
+	sudo dpkg -i gitkraken-amd64.deb
+	rm gitkraken-amd64.deb
+
+	#install atom
+	cd ~/
+	wget -c "https://atom.io/download/deb"
+	sudo dpkg -i atom-amd64.deb
+	rm atom-amd64.deb
+fi
 
 #install gulp
 npm install -g gulp

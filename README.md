@@ -6,17 +6,20 @@ The script install :
 - npm
 - git
 - dpkg
-- terminator
 - Java8
 - software-center (to install .deb package)
-- atom
 - composer (global install)
 - PhpStorm 10.0.3
 - IntelliJ 15.0.4
+- firefox
+
+Those software are optional : 
 - maven
 - gitKraken
 - gulp (global)
-- firefox
+- atom
+- terminator
+- latex (full)
 
 all file downloaded for installation are remove (if it's possible).
 
