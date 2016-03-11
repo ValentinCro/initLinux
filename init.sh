@@ -1,10 +1,25 @@
 #!/bin/bash
 
+read -p "Do you wish to install full alias (y/n) (invalid input equals yes) ? " choice
+
+if [ -z $choice ]	
+then
+	choice="y"
+fi	
+
+if [ $choice == "n" ]
+  then
+	sudo mv bashrc-minfull ~/.bashrc
+else
+	sudo mv bashrc-full ~/.bashrc
+fi
+
 sudo apt-get --yes --force-yes install php5
 sudo apt-get --yes --force-yes install npm
 sudo apt-get --yes --force-yes install maven
 sudo apt-get --yes --force-yes install terminator
 sudo apt-get --yes --force-yes install software-center
+sudo apt-get --yes --force-yes install firefox
 
 #Install JAVA
 sudo echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee /etc/apt/sources.list.d/webupd8team-java.list
@@ -27,7 +42,6 @@ wget -c "https://download.jetbrains.com/webide/PhpStorm-10.0.3.tar.gz"
 tar -xvf PhpStorm-10.0.3.tar.gz
 mv PhpStorm-10.0.3 ~/phpStorm
 rm PhpStorm-10.0.3.tar.gz
-
 
 #install intelliJ
 cd ~/

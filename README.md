@@ -14,3 +14,17 @@ The script install :
 - maven
 - gitKraken
 - gulp (global)
+- firefox
+
+all file downloaded for installation are remove (if it's possible).
+
+### main alias (in bashrc-min)
+
+I put some alias what are very usefull :
+- phpStorm
+- intelliJ
+
+### less usefull alias (in bashrc-full)
+
+Those alias are more useless if you don't use some software :
+- emptyHtdoc (what rm all file contains in /opt/lamp/htdoc). Useless if you don't use an apache server.
