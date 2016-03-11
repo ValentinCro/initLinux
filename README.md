@@ -11,7 +11,10 @@ The script install :
 - composer (global install)
 - PhpStorm 10.0.3
 - IntelliJ 15.0.4
-- firefox
+- firefox (ubuntu)
+- iceweasel (debian)
+- gcc
+- man
 
 Those software are optional : 
 - maven
