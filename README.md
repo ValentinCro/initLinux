@@ -20,6 +20,7 @@ Those software are optional :
 - atom
 - terminator
 - latex (full)
+- texstudio
 
 all file downloaded for installation are remove (if it's possible).
 
