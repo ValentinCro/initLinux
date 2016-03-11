@@ -20,6 +20,7 @@ sudo apt-get --yes --force-yes install maven
 sudo apt-get --yes --force-yes install terminator
 sudo apt-get --yes --force-yes install software-center
 sudo apt-get --yes --force-yes install firefox
+sudo apt-get --yes --force-yes install git
 
 
 #Install JAVA
@@ -42,15 +43,15 @@ sudo mv composer.phar /usr/local/bin/composer
 cd ~/
 wget -c "https://download.jetbrains.com/webide/PhpStorm-10.0.3.tar.gz"
 tar -xvf PhpStorm-10.0.3.tar.gz
-mv PhpStorm-10.0.3 ~/phpStorm
-rm PhpStorm-10.0.3.tar.gz
+rm PhpStorm-*.tar.gz
+mv PhpStorm-* ~/phpStorm
 
 #install intelliJ
 cd ~/
 wget -c "https://download.jetbrains.com/idea/ideaIU-15.0.4.tar.gz"
 tar -xvf ideaIU-15.0.4.tar.gz
-mv ideaIU-15.0.4 ~/ideaIU
-rm ideaIU-15.0.4.tar.gz
+rm ideaIU-*.tar.gz
+mv ideaIU-* ~/ideaIU
 
 #install gitKraken
 cd ~/

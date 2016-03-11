@@ -4,6 +4,7 @@ init a linux os with all thing needed by a web developer
 The script install :
 - php5
 - npm
+- git
 - terminator
 - Java8
 - software-center (to install .deb package)
