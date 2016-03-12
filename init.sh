@@ -1,69 +1,36 @@
 #!/bin/bash
 
-read -p "Do you wish to install full alias (y/n) (invalid input equals yes) ? " choice
+PLUGINS_DIR="./plugins"
 
-if [ -z $choice ]	
+# We make these vars accessible by all plugins
+# TODO: let the user choose the wanted folder
+export APP_DIR="$HOME/Documents/Apps"
+
+# We create the plugins directory if it doesn't exists
+if [ ! -d $PLUGINS_DIR ]
 then
-	choice="y"
-fi	
-
-if [ $choice == "n" ]
-  then
-	sudo mv bashrc-minfull ~/.bashrc
-else
-	sudo mv bashrc-full ~/.bashrc
+	mkdir $PLUGINS_DIR
 fi
 
-sudo apt-get --yes --force-yes install php5
-sudo apt-get --yes --force-yes install npm
-sudo apt-get --yes --force-yes install maven
-sudo apt-get --yes --force-yes install terminator
-sudo apt-get --yes --force-yes install software-center
-sudo apt-get --yes --force-yes install firefox
-sudo apt-get --yes --force-yes install git
+# We create the Apps directory if it doesn't exists, and all parents directory too.
+if [ ! -d $APP_DIR ]
+then
+	mkdir -p $APP_DIR
+fi
 
+# We look through this directory and search for some files to run
+# these files must be executable for security reasons;
+FILES=$(ls $PLUGINS_DIR -1)
+for file in $FILES; do
+	if [ ! -e "$PLUGINS_DIR/$file" ] || [ ! -x "$PLUGINS_DIR/$file" ] || [ -d "$PLUGINS_DIR/$file" ]; then
+		continue
+	fi
 
-#Install JAVA
-sudo echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | sudo tee /etc/apt/sources.list.d/java-8-debian.list
-sudo echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | sudo tee -a /etc/apt/sources.list.d/java-8-debian.list
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
-sudo apt-get update
-sudo apt-get --yes --force-yes install oracle-java8-installer
-sudo apt-get --yes --force-yes install oracle-java8-set-default
+	$SHELL "$PLUGINS_DIR/$file"
 
-#install composer
-cd ~/
-php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php
-php -r "if (hash('SHA384', file_get_contents('composer-setup.php')) === '41e71d86b40f28e771d4bb662b997f79625196afcca95a5abf44391188c695c6c1456e16154c75a211d238cc3bc5cb47') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-php composer-setup.php
-php -r "unlink('composer-setup.php');"
-sudo mv composer.phar /usr/local/bin/composer
+done
 
-#install phpStorm
-cd ~/
-wget -c "https://download.jetbrains.com/webide/PhpStorm-10.0.3.tar.gz"
-tar -xvf PhpStorm-10.0.3.tar.gz
-rm PhpStorm-*.tar.gz
-mv PhpStorm-* ~/phpStorm
+# We delete the exported vars
+unset APP_DIR
 
-#install intelliJ
-cd ~/
-wget -c "https://download.jetbrains.com/idea/ideaIU-15.0.4.tar.gz"
-tar -xvf ideaIU-15.0.4.tar.gz
-rm ideaIU-*.tar.gz
-mv ideaIU-* ~/ideaIU
-
-#install gitKraken
-cd ~/
-wget -c "https://release.gitkraken.com/linux/gitkraken-amd64.deb"
-sudo dpkg -i gitkraken-amd64.deb
-rm gitkraken-amd64.deb
-
-#install atom
-cd ~/
-wget -c "https://atom.io/download/deb"
-sudo dpkg -i atom-amd64.deb
-rm atom-amd64.deb
-
-#install gulp
-npm install -g gulp
+exit 0
