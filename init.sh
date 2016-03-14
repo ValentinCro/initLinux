@@ -15,6 +15,7 @@ else
 fi
 
 sudo apt-get --yes --force-yes install php5
+sudo apt-get --yes --force-yes install php5-mysql
 sudo apt-get --yes --force-yes install curl
 curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
 sudo apt-get install -y nodejs

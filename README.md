@@ -3,6 +3,7 @@ init a linux os with all thing needed by a web developer
 
 The script install :
 - php5
+- php5-mysql (needed by symfony doctrine)
 - npm
 - git
 - dpkg
