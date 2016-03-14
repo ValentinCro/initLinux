@@ -15,7 +15,9 @@ else
 fi
 
 sudo apt-get --yes --force-yes install php5
-sudo apt-get --yes --force-yes install npm
+sudo apt-get --yes --force-yes install curl
+curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+sudo apt-get install -y nodejs
 sudo apt-get --yes --force-yes install git
 sudo apt-get --yes --force-yes install dpkg
 sudo apt-get --yes --force-yes install gcc
