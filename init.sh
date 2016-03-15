@@ -9,7 +9,7 @@ fi
 
 if [ $choice == "n" ]
   then
-	sudo mv bashrc-minfull ~/.bashrc
+	sudo mv bashrc-min ~/.bashrc
 else
 	sudo mv bashrc-full ~/.bashrc
 fi
