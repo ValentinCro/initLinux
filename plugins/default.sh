@@ -7,12 +7,12 @@ fi
 
 if [ $choice == "n" ]
   then
-	sudo mv bashrc-minfull ~/.bashrc
+	sudo mv ../bashrc-minfull ~/.bashrc
 else
-	sudo mv bashrc-full ~/.bashrc
+	sudo mv ../bashrc-full ~/.bashrc
 fi
 
-sudo apt-get --yes --force-yes install php5 - ok
+sudo apt-get --yes --force-yes install php5
 sudo apt-get --yes --force-yes install npm
 sudo apt-get --yes --force-yes install maven
 sudo apt-get --yes --force-yes install terminator
