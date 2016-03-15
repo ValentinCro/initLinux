@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#Plugins list (true to install it, false to don't install it)
+declare -A PLUGINS_LIST
+PLUGINS_LIST["default.sh"]=true
+PLUGINS_LIST["tomcat.sh"]=true
+PLUGINS_LIST["zsh.sh"]=true
+
 PLUGINS_DIR="./plugins"
 
 # We make these vars accessible by all plugins
@@ -27,8 +33,11 @@ for file in $FILES; do
 		continue
 	fi
 
-	$SHELL "$PLUGINS_DIR/$file"
-
+	fileName=$(echo $file | tr '[:upper:]' '[:lower:]')
+	if [ ${PLUGINS_LIST[$fileName]} == true ]
+	then
+		$SHELL "$PLUGINS_DIR/$file"
+	fi
 done
 
 # We delete the exported vars
