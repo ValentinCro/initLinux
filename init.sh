@@ -27,7 +27,7 @@ fi
 
 # We look through this directory and search for some files to run
 # these files must be executable for security reasons;
-FILES=$(ls $PLUGINS_DIR -1)
+FILES=$(ls $PLUGINS_DIR -1 | sort)
 for file in $FILES; do
 	if [ ! -e "$PLUGINS_DIR/$file" ] || [ ! -x "$PLUGINS_DIR/$file" ] || [ -d "$PLUGINS_DIR/$file" ]; then
 		continue
