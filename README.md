@@ -1,5 +1,11 @@
 # initLinux v1.0
-init a linux os with all thing needed by a web developer
+init a linux os with all thing needed by a web developer.
+
+It was tested in :
+
+- Debian
+- Ubuntu
+- LinuxMint
 
 The script install :
 - php5
