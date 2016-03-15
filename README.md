@@ -46,9 +46,8 @@ I put some alias what are very usefull :
 ### less usefull alias (in bashrc-full)
 
 Those alias are more useless if you don't use some software :
+- emptyHtdoc (what rm all file contains in /opt/lamp/htdoc). Useless if you don't use an apache server.
 
 ###contributor
 - valentinCro
 - Renan Decamps
--
-- emptyHtdoc (what rm all file contains in /opt/lamp/htdoc). Useless if you don't use an apache server.
