@@ -85,6 +85,7 @@ else
 	#install atom
 	cd ~/
 	wget -c "https://atom.io/download/deb"
+	mv deb atom-amd64.deb
 	sudo dpkg -i atom-amd64.deb
 	rm atom-amd64.deb
 fi

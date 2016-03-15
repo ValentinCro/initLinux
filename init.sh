@@ -9,7 +9,8 @@ export APP_DIR="$HOME/Documents/Apps"
 # We create the plugins directory if it doesn't exists
 if [ ! -d $PLUGINS_DIR ]
 then
-	mkdir $PLUGINS_DIR
+	echo "[ERROR] plugins folder doesn't exist"
+	exit 0
 fi
 
 # We create the Apps directory if it doesn't exists, and all parents directory too.
