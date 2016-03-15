@@ -28,7 +28,7 @@ distrib=$(lsb_release -i | cut -f 2- | tr '[:upper:]' '[:lower:]')
 if [ $distrib == "debian" ]
 then
 	sudo apt-get --yes --force-yes install iceweasel
-elif [ $distrib == "ubuntu" ]
+elif [ $distrib == "ubuntu" ] && [ $distrib == "linuxmint" ]
 then	
 	sudo apt-get --yes --force-yes install firefox
 fi
