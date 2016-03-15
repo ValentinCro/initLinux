@@ -1,21 +1,33 @@
-# initLinux
+# initLinux v1.0
 init a linux os with all thing needed by a web developer
 
 The script install :
 - php5
+- php5-cli
+- php5-mysql (needed by symfony doctrine)
 - npm
 - git
-- terminator
+- dpkg
 - Java8
 - software-center (to install .deb package)
-- atom
 - composer (global install)
 - PhpStorm 10.0.3
 - IntelliJ 15.0.4
+- firefox (ubuntu)
+- iceweasel (debian)
+- gcc
+- man
+
+Those software are optional : 
 - maven
 - gitKraken
 - gulp (global)
-- firefox
+- atom
+- terminator
+
+Those one are separate because of their big weight :
+- latex (full)
+- texstudio
 
 all file downloaded for installation are remove (if it's possible).
 

@@ -7,19 +7,31 @@ fi
 
 if [ $choice == "n" ]
   then
-	sudo mv ../bashrc-minfull ~/.bashrc
+	sudo mv bashrc-min ~/.bashrc
 else
-	sudo mv ../bashrc-full ~/.bashrc
+	sudo mv bashrc-full ~/.bashrc
 fi
 
 sudo apt-get --yes --force-yes install php5
-sudo apt-get --yes --force-yes install npm
-sudo apt-get --yes --force-yes install maven
-sudo apt-get --yes --force-yes install terminator
-sudo apt-get --yes --force-yes install software-center
-sudo apt-get --yes --force-yes install firefox
+sudo apt-get --yes --force-yes install php5-cli
+sudo apt-get --yes --force-yes install php5-mysql
+sudo apt-get --yes --force-yes install curl
+curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+sudo apt-get install -y nodejs
 sudo apt-get --yes --force-yes install git
+sudo apt-get --yes --force-yes install dpkg
+sudo apt-get --yes --force-yes install gcc
+sudo apt-get --yes --force-yes install man
 
+distrib=$(lsb_release -i | cut -f 2- | tr '[:upper:]' '[:lower:]')
+
+if [ $distrib == "debian" ]
+then
+	sudo apt-get --yes --force-yes install iceweasel
+elif [ $distrib == "ubuntu" ]
+then	
+	sudo apt-get --yes --force-yes install firefox
+fi
 
 #Install JAVA
 sudo echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | sudo tee /etc/apt/sources.list.d/java-8-debian.list
@@ -36,7 +48,6 @@ php -r "if (hash('SHA384', file_get_contents('composer-setup.php')) === '41e71d8
 php composer-setup.php
 php -r "unlink('composer-setup.php');"
 sudo mv composer.phar /usr/local/bin/composer
-
 #install phpStorm
 cd ~/
 wget -c "https://download.jetbrains.com/webide/PhpStorm-10.0.3.tar.gz"
@@ -49,19 +60,49 @@ cd ~/
 wget -c "https://download.jetbrains.com/idea/ideaIU-15.0.4.tar.gz"
 tar -xvf ideaIU-15.0.4.tar.gz
 rm ideaIU-*.tar.gz
-mv ideaIU-* ~/ideaIU
+mv idea-IU-* ~/ideaIU
 
-#install gitKraken
-cd ~/
-wget -c "https://release.gitkraken.com/linux/gitkraken-amd64.deb"
-sudo dpkg -i gitkraken-amd64.deb
-rm gitkraken-amd64.deb
+read -p "Do you wish to install optional software (y/n) (invalid input equals yes) ? " choice
 
-#install atom
-cd ~/
-wget -c "https://atom.io/download/deb"
-sudo dpkg -i atom-amd64.deb
-rm atom-amd64.deb
+if [ -z $choice ]	
+then
+	choice="y"
+fi	
+
+if [ $choice == "n" ]
+  then
+	echo "Well, no problem... *cry*"
+else
+	sudo apt-get --yes --force-yes install maven
+	sudo apt-get --yes --force-yes install terminator
+
+	#install gitKraken
+	cd ~/
+	wget -c "https://release.gitkraken.com/linux/gitkraken-amd64.deb"
+	sudo dpkg -i gitkraken-amd64.deb
+	rm gitkraken-amd64.deb
+
+	#install atom
+	cd ~/
+	wget -c "https://atom.io/download/deb"
+	sudo dpkg -i atom-amd64.deb
+	rm atom-amd64.deb
+fi
+
+read -p "Do you wish to install latex and texstudio (y/n) (invalid input equals yes) ? " choice
+
+if [ -z $choice ]	
+then
+	choice="y"
+fi	
+
+if [ $choice == "n" ]
+  then
+	echo "Well, no problem... *cry*"
+else
+	sudo apt-get --yes --force-yes install texlive-full
+	sudo apt-get --yes --force-yes install texstudio
+fi
 
 #install gulp
-npm install -g gulp
+sudo npm install -g gulp
